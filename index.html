@@ -9,32 +9,37 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: white; /* bílé pozadí */
+      background: white;
     }
 
-    /* Výchozí styl pro mobily */
+    /* Výchozí styl pro mobily – vertikální centrování */
+    body {
+      display: flex;
+      align-items: center;     /* vertikální střed */
+      justify-content: center; /* horizontální střed */
+    }
+
     img {
-      display: block;
-      margin: 0 auto;
-      width: 100%;
+      max-width: 100%;
       height: auto;
     }
 
-    /* Na větších obrazovkách použijeme pozadí, aby vyplnilo monitor */
+    /* Na větších obrazovkách pozadí přes celou obrazovku */
     @media (min-width: 769px) {
       body {
+        display: block;
         background: white url('files/krchleby.jpg') no-repeat center center;
-        background-size: cover; /* přiblížení, aby to vyplnilo monitor */
+        background-size: cover;
       }
       img {
-        display: none; /* na PC obrázek skryjeme, používáme pozadí */
+        display: none;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Obrázek se použije jen na mobilech -->
+  <!-- Obrázek pro mobily -->
   <img src="files/krchleby.jpg" alt="KRCHLEBY na Moravě">
 
 </body>

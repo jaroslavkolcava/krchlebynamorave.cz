@@ -12,11 +12,17 @@
     }
     body {
       background-image: url('files/krchleby.jpg');
-      background-attachment: fixed;   /* parallax efekt */
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      height: 100vh; /* plná výška obrazovky */
+      height: 100vh;
+      background-attachment: fixed; /* parallax pro PC */
+    }
+    /* Na mobilech vypneme parallax, aby se zobrazovalo správně */
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;
+      }
     }
   </style>
 </head>

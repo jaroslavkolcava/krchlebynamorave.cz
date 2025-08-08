@@ -8,11 +8,12 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 200%; /* dvojnásobná výška, aby bylo co scrollovat */
+      height: 100%;
       background: #000;
     }
+    /* Fotka přes celou obrazovku */
     .parallax {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -21,20 +22,26 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      z-index: -1; /* pošleme fotku dozadu */
+      z-index: -1;
       transform: translateY(0);
       will-change: transform;
+    }
+    /* Falešný obsah pro scroll efekt */
+    .spacer {
+      height: 200vh; /* dvojnásobná výška stránky */
     }
   </style>
 </head>
 <body>
 
   <div class="parallax"></div>
+  <div class="spacer"></div>
 
   <script>
+    const parallax = document.querySelector('.parallax');
     window.addEventListener('scroll', function() {
-      let offset = window.scrollY * 0.5; // rychlost posunu
-      document.querySelector('.parallax').style.transform = `translateY(${offset}px)`;
+      let offset = window.scrollY * 0.5;
+      parallax.style.transform = `translateY(${offset}px)`;
     });
   </script>
 
